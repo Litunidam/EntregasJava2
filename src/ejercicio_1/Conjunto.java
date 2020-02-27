@@ -25,7 +25,7 @@ public class Conjunto {
 	
 	/**
 	 * 
-	 * @param d
+	 * @param d: 
 	 * @return Devuelve un conjunto que contiene los elementos de dos conjuntos
 	 */
 	public Conjunto union(Conjunto d) {
