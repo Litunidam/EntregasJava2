@@ -22,10 +22,26 @@ public class Principal {
 		d.addElemento(2);
 		d.addElemento(12);
 		
+		System.out.println("Unión");
 		Conjunto b = c.union(d);
+		System.out.println(b);
 		
+		System.out.println("Interseccion");
+		b=c.interseccion(d);
+		System.out.println(b);
 		
+		System.out.println("Diferencia");
+		b=c.diferencia(d);
+		System.out.println(b);
 		
+		System.out.println("pertenece");
+		System.out.println(c.perteneceConjunto(5));
+		
+		System.out.println("Subconjunto");
+		System.out.println(c.esSubconjunto(d));
+		
+		System.out.println("¿Son iguales?");
+		System.out.println(c.sonIguales(d));
 		
 		
 	}
