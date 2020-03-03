@@ -41,4 +41,13 @@ public class Vector3D {
 		
 		return modulo;
 	}
+	
+	public int prodEscalar(Vector3D ve) {
+		
+		int prod=0;
+		
+		prod=this.v[0]*ve.v[0]+this.v[1]*ve.v[1]*this.v[2]*ve.v[2];
+		
+		return prod;
+	}
 }
