@@ -1,8 +1,12 @@
 package ejercicio_3;
 
+import java.util.*;
+
 public class Board {
 
-	public String [][] board = new String[3][3];
+	static String [][] board = new String[3][3];
+	static Player player1=new Player(Piece.O);
+	static Player player2=new Player(Piece.X);
 	
 	public Board() {
 		
@@ -17,6 +21,43 @@ public class Board {
 	public void setBoard(String[][] board) {
 		this.board=board;
 	}
+	
+	static void firstTurn() {
+		Random r = new Random();
+		int random;
+		random=r.nextInt(2);
+		
+		if (random==0) {
+			turn(player1);
+		}else
+			turn(player2);
+	}
+	
+	public static void turn(Player player) {
+		Scanner s = new Scanner(System.in);
+		int row;
+		int col;
+		
+		System.out.println("Introduce la fila: ");
+		row=s.nextInt();
+		s.nextLine();
+		System.out.println("Introduce la columna:");
+		col=s.nextInt();
+		s.nextLine();
+		
+		addMark(player1.piece,row,col);
+		
+	}
+	
+	
+	static void addMark(Piece p,int row,int col) {
+		if (board[row][col].equals("X")||board[row][col].equals("O")) {
+			System.out.println("No se puede marcar esa posisición porque ya está marcada");
+		}else
+			board[row][col]=p.getPiece();
+	}
+	
+	
 	
 	@Override
 	public String toString() {
