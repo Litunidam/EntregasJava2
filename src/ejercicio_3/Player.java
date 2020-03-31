@@ -12,7 +12,8 @@ public class Player {
 	}
 	public void setPiece(Board board,int row,int col){
 		
-		board.board[row][col]=this.piece.getPiece();
-		board.setBoard(board.board);
+		board.getBoard()[row][col]=this.piece.getPiece();
+		board.setBoard(board.getBoard());
 	}
+
 }
