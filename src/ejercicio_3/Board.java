@@ -10,6 +10,9 @@ public class Board {
 	private Player machine1 = new Player(Piece.O);
 	private Player machine2 = new Player(Piece.X);
 	
+	/**
+	 * Constructor del tablero, lo inicializa a " " para poder mostrarlo bien definido
+	 */
 	public Board() {
 
 		for (int i = 0; i < 3; i++) {
@@ -28,6 +31,10 @@ public class Board {
 		this.table = board;
 	}
 
+	/**
+	 * Menú del juego
+	 * @return devuelve el número para seleccionar opción
+	 */
 	public int menu() {
 		
 		Scanner s = new Scanner(System.in);
@@ -47,7 +54,10 @@ public class Board {
 		}
 		return menu;
 	}
-	
+	/**
+	 * 
+	 * @param player El turno de los jugadores, pasa por parámetros un Player
+	 */
 	public void turn(Player player) {
 		
 		Scanner s = new Scanner(System.in);
@@ -89,6 +99,13 @@ public class Board {
 
 	}
 	
+	/**
+	 * Es la forma de añadir la ficha en el tablero
+	 * @param player
+	 * @param p es la String de la marca de la ficha
+	 * @param row la fila del tablero
+	 * @param col la columna del tablero
+	 */
 	public void mark(Player player, String p, int row, int col) {
 		
 		if (this.table[row][col] == "X" || this.table[row][col] == "O") {
@@ -104,6 +121,10 @@ public class Board {
 		System.out.println(this);
 	}
 
+	/**
+	 * El turno de la máquina
+	 * @param machine un Player de nombre machine para diferenciar
+	 */
 	public void machineTurn(Player machine) {
 		
 		Random r = new Random();
@@ -113,6 +134,13 @@ public class Board {
 		
 	}
 	
+	/**
+	 * Forma de marcar ficha con la máquina
+	 * @param machine
+	 * @param p es la String de la ficha
+	 * @param row
+	 * @param col
+	 */
 	public void machineMark(Player machine,String p,int row, int col) {
 		
 		if (this.table[row][col] == "X" || this.table[row][col] == "O") {
@@ -126,6 +154,9 @@ public class Board {
 		System.out.println(this);
 	}
 	
+	/**
+	 * Inicia el juego con dos Player personas
+	 */
 	public void game() {
 		
 		System.out.println(this);
@@ -154,7 +185,11 @@ public class Board {
 			
 		}
 	}
-
+	
+	/**
+	 * 
+	 * Inicia el juego con un jugador y una máquina
+	 */
 	public void gameWithMachine() {
 		
 		System.out.println(this);
@@ -172,7 +207,7 @@ public class Board {
 				break;
 			}
 			
-			machineTurn(machine1);
+			machineTurn(machine2);
 			
 			if(win()) {
 				break;
@@ -185,7 +220,9 @@ public class Board {
 		}
 		
 	}
-	
+	/**
+	 * Inicia el juego de dos máquinas
+	 */
 	public void gameOnlyMachines() {
 		
 		System.out.println(this);
@@ -216,6 +253,11 @@ public class Board {
 		}
 		
 	}
+	
+	/**
+	 * 
+	 * @return true si se ha cumplido cualquier condición de victoria, false si no es así
+ 	 */
 	public boolean win() {
 		
 		if (table[0][0].equals("O") && table[0][1].equals("O") && table[0][2].equals("O") || table[1][0].equals("O") && table[1][1].equals("O") && table[1][2].equals("O") ||
@@ -244,6 +286,10 @@ public class Board {
 		
 	}
 	
+	/**
+	 * 
+	 * @return true si el juego acaba en empate cuando no se puedan añadir más marcas
+	 */
 	public boolean isThisGameFinished() {
 
 		int count = 0;
@@ -270,6 +316,6 @@ public class Board {
 	@Override
 	public String toString() {
 
-		return " | " + table[0][0] + " | " + table[0][1] + " | " + table[0][2] + " | " + "\n" + "_______________" + "\n" + " | " + table[1][0] + " | " + table[1][1] + " | " + table[1][2] + " | " + "\n" + "_______________" + "\n" + " | " + table[2][0] + " | " + table[2][1] + " | " + table[2][2] + " | ";
+		return "________________________" + "\n" +" | " + table[0][0] + " | " + table[0][1] + " | " + table[0][2] + " | " + "\n" + "_______________" + "\n" + " | " + table[1][0] + " | " + table[1][1] + " | " + table[1][2] + " | " + "\n" + "_______________" + "\n" + " | " + table[2][0] + " | " + table[2][1] + " | " + table[2][2] + " | "+"\n________________________";
 	}
 }

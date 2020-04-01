@@ -99,7 +99,7 @@ public class Vector3D {
 		String a;
 		a="<";
 		for(int i=0;i<3;i++) {
-			a+="v"+this.v[i];
+			a+= this.v[i];
 			if(i!=2) {
 				a+=",";
 			}

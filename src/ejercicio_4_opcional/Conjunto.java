@@ -1,19 +1,20 @@
-package ejercicio_1;
+package ejercicio_4_opcional;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Conjunto {
+public class Conjunto<T> implements Iterable<T> {
 
-	private ArrayList<Integer> l = new ArrayList<>();
+	private ArrayList<T> l = new ArrayList<>();
 
-	public void addElemento(int n) {
+	public void addElemento(T n) {
 
 		if (!l.contains(n)) {
 			l.add(n);
 		}
 	}
 
-	public void deleteElemento(int n) {
+	public void deleteElemento(T n) {
 
 		if (l.contains(n)) {
 			l.remove(n);
@@ -27,13 +28,13 @@ public class Conjunto {
 	 * @param d:
 	 * @return Devuelve un conjunto que contiene los elementos de dos conjuntos
 	 */
-	public Conjunto union(Conjunto d) {
+	public Conjunto<T> union(Conjunto<T> d) {
 
-		Conjunto aux = new Conjunto();
+		Conjunto<T> aux = new Conjunto<>();
 
 		aux.l.addAll(this.l);
 
-		for (Integer x : d.l) {
+		for (T x : d.l) {
 
 			aux.addElemento(x);
 
@@ -47,10 +48,10 @@ public class Conjunto {
 	 * @param Conjunto d
 	 * @return devuelve un conjunto con los números que contengan los dos Conjuntos
 	 */
-	public Conjunto interseccion(Conjunto d) {
-		Conjunto aux = new Conjunto();
+	public Conjunto<T> interseccion(Conjunto<T> d) {
+		Conjunto<T> aux = new Conjunto<>();
 
-		for (Integer x : d.l) {
+		for (T x : d.l) {
 			if (this.l.contains(x)) {
 				aux.l.add(x);
 			}
@@ -69,11 +70,11 @@ public class Conjunto {
 	 * @return devuelve un conjunto con los elementos del primer conjunto que no
 	 *         estén en el segundo
 	 */
-	public Conjunto diferencia(Conjunto d) {
+	public Conjunto<T> diferencia(Conjunto<T> d) {
 
-		Conjunto aux = new Conjunto();
+		Conjunto<T> aux = new Conjunto<>();
 
-		for (Integer x : this.l) {
+		for (T x : this.l) {
 
 			if (!d.l.contains(x)) {
 
@@ -89,7 +90,7 @@ public class Conjunto {
 	 * @param x
 	 * @return devuelve true si es un subconjunto y devuelve false si no lo es
 	 */
-	public boolean perteneceConjunto(int x) {
+	public boolean perteneceConjunto(T x) {
 
 		return this.l.contains(x);
 	}
@@ -99,7 +100,7 @@ public class Conjunto {
 	 * @param d
 	 * @return devuelve true si contiene todos los elementos del Conjunto
 	 */
-	public boolean esSubconjunto(Conjunto d) {
+	public boolean esSubconjunto(Conjunto<T> d) {
 
 		return this.l.containsAll(d.l);
 	}
@@ -109,7 +110,7 @@ public class Conjunto {
 	 * @param d
 	 * @return devuelve true si el primer Conjunto es igual al segundo Conjunto
 	 */
-	public boolean sonIguales(Conjunto d) {
+	public boolean sonIguales(Conjunto<T> d) {
 
 		if (this.l.size() == d.l.size() && this.esSubconjunto(d)) {
 
@@ -123,7 +124,7 @@ public class Conjunto {
 	public String toString() {
 		String s;
 		s = "{";
-		for (Integer x : this.l) {
+		for (T x : this.l) {
 			s += x;
 			if (x != this.l.get(this.l.size() - 1)) {
 				s += ",";
@@ -131,5 +132,10 @@ public class Conjunto {
 		}
 		s += "}";
 		return s;
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return null;
 	}
 }

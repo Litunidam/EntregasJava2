@@ -7,9 +7,11 @@ public class Player {
 	public Player(Piece piece) {
 		this.piece=piece;
 	}
+	
 	public String getPiece() {
 		return this.piece.getPiece();
 	}
+	
 	public void setPiece(Board board,int row,int col){
 		
 		board.getBoard()[row][col]=this.piece.getPiece();
