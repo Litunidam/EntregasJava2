@@ -3,7 +3,7 @@ package ejercicio_4_opcional;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Conjunto<T> implements Iterable<T> {
+public class Conjunto<T> {
 
 	private ArrayList<T> l = new ArrayList<>();
 
@@ -134,8 +134,4 @@ public class Conjunto<T> implements Iterable<T> {
 		return s;
 	}
 
-	@Override
-	public Iterator<T> iterator() {
-		return null;
-	}
 }

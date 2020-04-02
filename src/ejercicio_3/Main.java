@@ -11,8 +11,10 @@ public class Main {
 				break;
 			case 2:
 				board.gameWithMachine();
+				break;
 			case 3:
 				board.gameOnlyMachines();
+				break;
 			default:
 			break;
 		}

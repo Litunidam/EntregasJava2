@@ -50,7 +50,7 @@ public class Board {
 		
 		while(menu<1||menu>3) {
 			System.out.println("Seleccione un número de los mostrados:");
-			menu();
+			menu=menu();
 		}
 		return menu;
 	}
@@ -128,7 +128,6 @@ public class Board {
 	public void machineTurn(Player machine) {
 		
 		Random r = new Random();
-		System.out.println("Turno de la máquina "+machine.getPiece());
 		machineMark(machine,machine.getPiece(),r.nextInt(3),r.nextInt(3));
 		
 		
@@ -147,11 +146,14 @@ public class Board {
 			
 			machineTurn(machine);
 		
-		} else
+		} else {
 			
 			table[row][col] = p;
-
-		System.out.println(this);
+			System.out.println("Turno de la máquina "+machine.getPiece());
+			System.out.println(this);
+		}
+		
+		
 	}
 	
 	/**
